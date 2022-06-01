@@ -1,6 +1,13 @@
 import React from 'react'
+import { Todo } from '../../core/Todo'
 
-function TodoList() {
+interface TodoListProps{
+    todos:Todo[]
+}
+
+
+function TodoList({todos}:TodoListProps) {
+
   return (
     <>
         <table className="table">
@@ -13,12 +20,14 @@ function TodoList() {
                 </tr>
             </thead>
             <tbody>
+                {todos.map( (todo:Todo) =>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{todo.id}</td>
+                    <td>{todo.title}</td>
+                    <td>{todo.completed}</td>
                     <td></td>
                 </tr>
+                )}
 
             </tbody>
         </table>
