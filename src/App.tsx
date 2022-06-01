@@ -5,14 +5,21 @@ import { useState } from 'react';
 import { Todo } from './core/Todo';
 import { useEffect } from 'react';
 import { domainToASCII } from 'url';
+import { TodoDAO } from './core/TodoDAO';
+
+const dao = new TodoDAO()
 
 function App() {
 
   const [data,setData] = useState<Todo[]>([])
 
   useEffect(() => {
-    const data = dao.findAll()
-    setData(data)
+
+    ( async () =>{
+      const data = await dao.findAll()
+      setData(data)
+  
+    })()
   }, [])
   
 

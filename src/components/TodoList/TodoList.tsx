@@ -1,5 +1,6 @@
 import React from 'react'
 import { Todo } from '../../core/Todo'
+import TodoRow from './TodoRow'
 
 interface TodoListProps{
     todos:Todo[]
@@ -21,12 +22,7 @@ function TodoList({todos}:TodoListProps) {
             </thead>
             <tbody>
                 {todos.map( (todo:Todo) =>
-                <tr>
-                    <td>{todo.id}</td>
-                    <td>{todo.title}</td>
-                    <td>{todo.completed}</td>
-                    <td></td>
-                </tr>
+                    <TodoRow key={todo.id} todo={todo}/>
                 )}
 
             </tbody>
