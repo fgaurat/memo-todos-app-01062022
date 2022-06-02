@@ -2,7 +2,7 @@ import React from 'react'
 import { Todo } from '../../core/Todo'
 import TodoRow from './TodoRow'
 
-interface TodoListProps{
+export interface TodoListProps{
     todos:Todo[]
 }
 
