@@ -4,7 +4,6 @@ import TodoList from './components/TodoList';
 import { useState } from 'react';
 import { Todo } from './core/Todo';
 import { useEffect } from 'react';
-import { domainToASCII } from 'url';
 import { TodoDAO } from './core/TodoDAO';
 
 const dao = new TodoDAO()
