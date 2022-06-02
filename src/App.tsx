@@ -12,11 +12,13 @@ const dao = new TodoDAO()
 function App() {
 
   const [data,setData] = useState<Todo[]>([])
-
-  const EnhancedComponent = HOCCompletedTodoList(TodoList);
-
-
-
+  const [showCompleted,setShowCompleted] = useState<boolean>(false);
+  
+  
+  const onShowCompleted = (event:React.FormEvent<HTMLInputElement>)=>{
+    const isChecked = event.currentTarget.checked;
+    setShowCompleted(isChecked)
+  }
 
   useEffect(() => {
 
@@ -31,7 +33,11 @@ function App() {
 
   return (
     <div className="container-fluid">
-        <EnhancedComponent todos={data}></EnhancedComponent>
+      <h1>memo-todos-app</h1>
+      completed ?<input type="checkbox" onChange={onShowCompleted} checked={showCompleted}/>
+
+        <TodoList todos={data.filter( (todo:Todo) => showCompleted?todo.completed:true)}></TodoList>
+
     </div>
   );
 }

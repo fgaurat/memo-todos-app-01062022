@@ -8,7 +8,7 @@ export interface TodoListProps{
 
 
 function TodoList({todos}:TodoListProps) {
-
+    console.log("TodoList render")
   return (
     <>
         <table className="table">
